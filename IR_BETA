@@ -1,8 +1,9 @@
-<<<< Windows Commands for IR >>>>
 @echo off
 
 mkdir %COMPUTERNAME%
 cd %COMPUTERNAME%
+
+manage-bde –protectors c: -get > bitlocketkey.txt
 
 mkdir SYSINFO
 cd SYSINFO
@@ -20,9 +21,9 @@ wmic process get name, parentprocessid, processid > Process_IDs.txt
 wmic process get commandline > Command_line_history.txt
 wmic process where (name='svchost.exe') get name,processid,parentprocessid,commandline > SVCHOST.txt
 
-SYSTEMINFO >SYSTEMINFO_%COMPUTERNAME%.TXT
-
 net view \\127.0.0.1 > fileshares.txt
+
+SYSTEMINFO >SYSTEMINFO_%COMPUTERNAME%.TXT
 
 cd..
 
