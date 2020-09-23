@@ -12,7 +12,8 @@ wmic logicaldisk get DeviceID /value > disk_drive_details_report.txt
 net session > opensessions.txt
 
 wmic useraccount get name, description, disabled, AccountType, passwordrequired, passwordexpires > user_details_report.txt
-wmic netlogin get name, lastlogon,privileges, primarygroupid, usertype, userid >> user_details_report1.txt
+wmic netlogin get name, lastlogon,privileges, primarygroupid, usertype, userid > user_details_report1.txt
+wmic netlogin get name,badpasswordcount > filedlogins.txt
 
 wmic bios get name, manufacturer, serialnumber, version > bios_report.txt
 
